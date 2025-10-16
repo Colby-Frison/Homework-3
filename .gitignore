@@ -1,0 +1,24 @@
+# Ignore environment files with sensitive credentials
+.env
+config.properties
+
+# Ignore compiled Java files
+*.class
+
+# Ignore JDBC driver JAR (too large for git)
+mssql-jdbc*.jar
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.iml
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Individual Question
+IndividualQuestion_Template.md
+
+# TODO.md
+TODO.md
