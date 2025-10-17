@@ -33,9 +33,9 @@ Homework 3/
 
 ### Security Notes
 
-- ❌ **DO NOT commit:** `.env` (contains real credentials)
-- ✅ The `.gitignore` file is configured to exclude `.env`
-- ✅ Share the setup instructions, not your credentials
+-  **DO NOT commit:** `.env` (contains real credentials)
+-  The `.gitignore` file is configured to exclude `.env`
+-  Share the setup instructions, not your credentials
 
 ### Compilation and Execution
 
