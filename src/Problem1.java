@@ -77,8 +77,7 @@ public class Problem1 {
         }
         
         URL = String.format(
-            "jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;" +
-            "trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
+            "jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
             hostname, dbname, username, password
         );
     }
@@ -91,8 +90,7 @@ public class Problem1 {
     final static String SP_INSERT_PILOT_BY_TIER = "{CALL InsertPilotByPassengerTier(?, ?, ?)}";
     
     // Query to display all pilots sorted by pIid
-    final static String QUERY_DISPLAY_ALL_PILOTS = 
-        "SELECT pIid, pIname, hours FROM Pilot ORDER BY pIid;";
+    final static String QUERY_DISPLAY_ALL_PILOTS = "SELECT pIid, pIname, hours FROM Pilot ORDER BY pIid;";
     
     // ==================== USER MENU PROMPT ====================
     final static String MENU_PROMPT = 
