@@ -1,0 +1,347 @@
+PS C:\Users\colby\OneDrive\Documents\notes\200 School\205 Fall 2025\CS 4513 - DBMS\Assignments\Homework 3\src>  java -cp ".;sqljdbc_13.2.1.0_enu\sqljdbc_13.2\enu\jars\mssql-jdbc-13.2.1.jre11.jar" Problem1
+
+===========================================
+   Welcome to Pilot Management System!
+   CS 4513 - Homework 3, Problem 1
+===========================================
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 1
+
+--- Insert Pilot (Average Flight Time) ---
+Enter Pilot ID (pIid): 11
+Enter Pilot Name (pIname): Name1-1
+
+Connecting to database...
+Executing stored procedure...
+
+[SUCCESS] Pilot inserted successfully!
+Rows affected: 1
+Hours calculated based on average flight time of all flights.
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 3
+
+Connecting to database...
+Retrieving pilot records...
+
+=================================================================
+                    ALL PILOTS IN DATABASE
+=================================================================
+Pilot ID   | Pilot Name                     | Hours
+-----------------------------------------------------------------
+11         | Name1-1                        | 4.36
+201        | Smith                          | 12000.00
+202        | Chen                           | 9500.00   
+203        | Garcia                         | 8000.00
+204        | Patel                          | 7000.00
+=================================================================
+End of pilot records.
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 1
+
+--- Insert Pilot (Average Flight Time) ---
+Enter Pilot ID (pIid): 12
+Enter Pilot Name (pIname): Name1-2
+
+Connecting to database...
+Executing stored procedure...
+
+[SUCCESS] Pilot inserted successfully!
+Rows affected: 1
+Hours calculated based on average flight time of all flights.
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 3
+
+Connecting to database...
+Retrieving pilot records...
+
+=================================================================
+                    ALL PILOTS IN DATABASE
+=================================================================
+Pilot ID   | Pilot Name                     | Hours
+-----------------------------------------------------------------
+11         | Name1-1                        | 4.36
+12         | Name1-2                        | 4.36
+201        | Smith                          | 12000.00
+202        | Chen                           | 9500.00
+203        | Garcia                         | 8000.00
+204        | Patel                          | 7000.00
+=================================================================
+End of pilot records.
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 1
+
+--- Insert Pilot (Average Flight Time) ---
+Enter Pilot ID (pIid): 13
+Enter Pilot Name (pIname): Name1-3
+
+Connecting to database...
+Executing stored procedure...
+
+[SUCCESS] Pilot inserted successfully!
+Rows affected: 1
+Hours calculated based on average flight time of all flights.
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 3
+
+Connecting to database...
+Retrieving pilot records...
+
+=================================================================
+                    ALL PILOTS IN DATABASE
+=================================================================
+Pilot ID   | Pilot Name                     | Hours
+-----------------------------------------------------------------
+11         | Name1-1                        | 4.36
+12         | Name1-2                        | 4.36
+13         | Name1-3                        | 4.36
+201        | Smith                          | 12000.00
+202        | Chen                           | 9500.00
+203        | Garcia                         | 8000.00
+204        | Patel                          | 7000.00
+=================================================================
+End of pilot records.
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 2
+
+--- Insert Pilot (By Passenger Tier) ---
+Enter Pilot ID (pIid): 21
+Enter Pilot Name (pIname): Name2-1
+Enter Passenger Tier (e.g., Gold, Silver, Bronze): Gold 
+
+Connecting to database...
+Executing stored procedure...
+
+[SUCCESS] Pilot inserted successfully!
+Rows affected: 1
+Hours calculated based on flights with Gold tier passengers.
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 3
+
+Connecting to database...
+Retrieving pilot records...
+
+=================================================================
+                    ALL PILOTS IN DATABASE
+=================================================================
+Pilot ID   | Pilot Name                     | Hours
+-----------------------------------------------------------------
+11         | Name1-1                        | 4.36
+12         | Name1-2                        | 4.36
+13         | Name1-3                        | 4.36
+21         | Name2-1                        | 4.92
+201        | Smith                          | 12000.00
+202        | Chen                           | 9500.00
+203        | Garcia                         | 8000.00
+204        | Patel                          | 7000.00
+=================================================================
+End of pilot records.
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 2
+
+--- Insert Pilot (By Passenger Tier) ---
+Enter Pilot ID (pIid): 22
+Enter Pilot Name (pIname): Name2-2
+Enter Passenger Tier (e.g., Gold, Silver, Bronze): Silver
+
+Connecting to database...
+Executing stored procedure...
+
+[SUCCESS] Pilot inserted successfully!
+Rows affected: 1
+Hours calculated based on flights with Silver tier passengers.
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 3
+
+Connecting to database...
+Retrieving pilot records...
+
+=================================================================
+                    ALL PILOTS IN DATABASE
+=================================================================
+Pilot ID   | Pilot Name                     | Hours
+-----------------------------------------------------------------
+11         | Name1-1                        | 4.36
+12         | Name1-2                        | 4.36
+13         | Name1-3                        | 4.36
+21         | Name2-1                        | 4.92
+22         | Name2-2                        | 4.56
+201        | Smith                          | 12000.00
+202        | Chen                           | 9500.00
+203        | Garcia                         | 8000.00
+204        | Patel                          | 7000.00
+=================================================================
+End of pilot records.
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 2
+
+--- Insert Pilot (By Passenger Tier) ---
+Enter Pilot ID (pIid): 23
+Enter Pilot Name (pIname): Name2-3
+Enter Passenger Tier (e.g., Gold, Silver, Bronze): Bronze
+
+Connecting to database...
+Executing stored procedure...
+
+[SUCCESS] Pilot inserted successfully!
+Rows affected: 1
+Hours calculated based on flights with Bronze tier passengers.
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 3
+
+Connecting to database...
+Retrieving pilot records...
+
+=================================================================
+                    ALL PILOTS IN DATABASE
+=================================================================
+Pilot ID   | Pilot Name                     | Hours
+-----------------------------------------------------------------
+11         | Name1-1                        | 4.36
+12         | Name1-2                        | 4.36
+13         | Name1-3                        | 4.36
+21         | Name2-1                        | 4.92
+22         | Name2-2                        | 4.56
+23         | Name2-3                        | 4.64
+201        | Smith                          | 12000.00
+202        | Chen                           | 9500.00
+203        | Garcia                         | 8000.00
+204        | Patel                          | 7000.00
+=================================================================
+End of pilot records.
+
+
+========================================
+     PILOT MANAGEMENT SYSTEM
+========================================
+Please select one of the options below:
+1) Insert Pilot (Hours Based on Average Flight Time)
+2) Insert Pilot (Hours Based on Passenger Tier)
+3) Display All Pilots
+4) Quit
+========================================
+Enter your choice: 4
+
+===========================================
+   Exiting Pilot Management System.
+   Thank you for using our system!
+===========================================
