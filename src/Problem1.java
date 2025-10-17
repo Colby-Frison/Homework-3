@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-/**
+/*
  * CS 4513 - Homework 3, Problem 1
  * Java program using JDBC to manage a Pilot database with menu-driven interface
  * 
@@ -23,78 +23,64 @@ import java.util.Properties;
  */
 public class Problem1 {
     
-    // ==================== DATABASE CREDENTIALS ====================
-    // Credentials are loaded from .env file
-    // This keeps sensitive information separate from the source code
-    private static String HOSTNAME;
-    private static String DBNAME;
-    private static String USERNAME;
-    private static String PASSWORD;
-    private static String URL;
+    /* ==================== DATABASE CREDENTIALS ====================
+    *  We used github to share the file across team members so we made a .env for credentials 
+    *  instead of hardcoding, if you just want to test without .env credentials can be entered below 
+    */
+    final static String HOSTNAME = "<your4x4>-sql-server.database.windows.net";
+    final static String DBNAME = "cs-dsa-4513-sql-db";
+    final static String USERNAME = "<your4x4>";
+    final static String PASSWORD = "<your_password>";
     
-    // Load database credentials from .env file
+    // Database connection string for Azure SQL
+    final static String URL;
+    
+    // Load credentials from .env if hardcoded values are still placeholders
     static {
-        try {
-            Properties props = new Properties();
-            FileInputStream fis = new FileInputStream(".env");
-            
-            // Read the .env file line by line
-            java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(fis));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                // Skip empty lines and comments
-                line = line.trim();
-                if (line.isEmpty() || line.startsWith("#")) {
-                    continue;
-                }
-                
-                // Parse KEY=VALUE format
-                int equalIndex = line.indexOf('=');
-                if (equalIndex > 0) {
-                    String key = line.substring(0, equalIndex).trim();
-                    String value = line.substring(equalIndex + 1).trim();
-                    
-                    // Remove quotes if present
-                    if (value.startsWith("\"") && value.endsWith("\"")) {
-                        value = value.substring(1, value.length() - 1);
-                    } else if (value.startsWith("'") && value.endsWith("'")) {
-                        value = value.substring(1, value.length() - 1);
+        String hostname = HOSTNAME;
+        String dbname = DBNAME;
+        String username = USERNAME;
+        String password = PASSWORD;
+        
+        // If any hardcoded credential is still a placeholder, try loading from .env
+        if (hostname.contains("<your4x4>") || username.contains("<your4x4>") || password.contains("<your_password>")) {
+            try {
+                Properties props = new Properties();
+                FileInputStream fis = new FileInputStream(".env");
+                java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(fis));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    line = line.trim();
+                    if (line.isEmpty() || line.startsWith("#")) continue;
+                    int equalIndex = line.indexOf('=');
+                    if (equalIndex > 0) {
+                        String key = line.substring(0, equalIndex).trim();
+                        String value = line.substring(equalIndex + 1).trim();
+                        if (value.startsWith("\"") && value.endsWith("\"")) {
+                            value = value.substring(1, value.length() - 1);
+                        } else if (value.startsWith("'") && value.endsWith("'")) {
+                            value = value.substring(1, value.length() - 1);
+                        }
+                        props.setProperty(key, value);
                     }
-                    
-                    props.setProperty(key, value);
                 }
+                reader.close();
+                fis.close();
+                
+                hostname = props.getProperty("DB_HOSTNAME", hostname);
+                dbname = props.getProperty("DB_NAME", dbname);
+                username = props.getProperty("DB_USERNAME", username);
+                password = props.getProperty("DB_PASSWORD", password);
+            } catch (IOException e) {
+                // .env file doesn't exist, will use hardcoded values
             }
-            reader.close();
-            fis.close();
-            
-            HOSTNAME = props.getProperty("DB_HOSTNAME");
-            DBNAME = props.getProperty("DB_NAME");
-            USERNAME = props.getProperty("DB_USERNAME");
-            PASSWORD = props.getProperty("DB_PASSWORD");
-            
-            // Validate that all required properties are present
-            if (HOSTNAME == null || DBNAME == null || USERNAME == null || PASSWORD == null) {
-                throw new RuntimeException(
-                    "Missing required database credentials in .env file. " +
-                    "Please ensure all variables (DB_HOSTNAME, DB_NAME, DB_USERNAME, DB_PASSWORD) are set."
-                );
-            }
-            
-            // Build the database connection string for Azure SQL
-            URL = String.format(
-                "jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;" +
-                "trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
-                HOSTNAME, DBNAME, USERNAME, PASSWORD
-            );
-            
-        } catch (IOException e) {
-            System.err.println("Error: Unable to load .env file.");
-            System.err.println("\nError details: " + e.getMessage());
-            System.exit(1);
-        } catch (RuntimeException e) {
-            System.err.println("Error: " + e.getMessage());
-            System.exit(1);
         }
+        
+        URL = String.format(
+            "jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;" +
+            "trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
+            hostname, dbname, username, password
+        );
     }
     
     // ==================== STORED PROCEDURE CALLS ====================
