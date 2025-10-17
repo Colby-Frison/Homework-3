@@ -25,3 +25,22 @@ TODO.md
 
 # SDBC driver
 sqljdbc_13.2.1.0_enu
+
+# LaTeX compilation files
+*.aux
+*.log
+*.out
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.bbl
+*.blg
+*.lof
+*.lot
+*.idx
+*.ilg
+*.ind
+*.nav
+*.snm
+*.vrb
