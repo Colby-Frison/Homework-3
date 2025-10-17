@@ -1,0 +1,182 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Header and Footer Configuration
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\setlength{\headheight}{14pt}
+
+\def\myheadertitle{CS 4513 - Database Management: Homework 2 - Problem 1}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[CO,CE]{\textsc{\myheadertitle}}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LO,RE]{\today}
+\fancyfoot[RO,LE]{\thepage/\pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+
+% First page style (for title page)
+\fancypagestyle{firststyle}
+{
+   \fancyhf{}
+   \fancyfoot[L]{\today}
+   \fancyfoot[R]{\thepage/\pageref*{LastPage}}
+}
+
+\begin{document}
+
+% Cover Page
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{2cm}
+
+\begin{flushleft}
+{\Large \textbf{GROUP NUMBER:} Group 22}\\[0.5cm]
+{\Large \textbf{GROUP MEMBERS:} Colby Frison, Brayden Garner, Brendan Ford, Jackson Dunlap}\\[0.5cm]
+{\Large \textbf{GRADED HOMEWORK NUMBER:} 2}\\[0.5cm]
+{\Large \textbf{COURSE:} CS/DSA-4513 - DATABASE MANAGEMENT}\\[0.5cm]
+{\Large \textbf{SECTION:} 002}\\[0.5cm]
+{\Large \textbf{SEMESTER:} FALL 2025}\\[0.5cm]
+{\Large \textbf{INSTRUCTOR:} EGAWATI PANJEI}\\[0.5cm]
+{\Large \textbf{SCORE:} }\\[2cm]
+\end{flushleft}
+
+
+\vfill
+
+\end{titlepage}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+\section{Group Question 1 (GQ1)}
+\subsection{Problem Description}
+
+A logistics and transportation charter company needs to efficiently manage its operations. To achieve this, the company has decided to organize and store its information in a database using a DBMS. The relevant information for the system is as follows:
+
+\begin{enumerate}[label=\textbf{\alph*.}]
+    \item The company employs \textbf{coordinators}, \textbf{operators}, and \textbf{agents}. Each \textbf{coordinator} is uniquely identified by their \textit{\underline{coordinator ID}} and has a \textit{name}. A \textbf{coordinator} can use \textbf{maps} and can \textit{dispatch} operations.
+    
+    \item Each \textbf{map} is uniquely identified by a \textit{\underline{city name}} and has a \textit{provider source}. Every \textbf{map} \textit{has} additional \textbf{metadata}, including a \textit{serial code} and \textit{updated date}.
+    
+    \item Each \textbf{operator} is uniquely identified by their \textit{\underline{operator ID}}, has a \textit{name} and \textit{driver's license}, and can operate \textbf{vehicles} at a particular \textit{timestamp}. Every \textbf{operator} \textit{is managed by} exactly one other \textbf{operator}.
+    
+    \item \textbf{Vehicles} are uniquely identified by a \textit{\underline{vehicle ID}} and have a \textit{purchase date}, a \textit{capacity}, and a \textit{condition}. The company has exactly three types of vehicles: \textbf{ground vehicles}, which have a \textit{license plate} and a \textit{VIN}; \textbf{boats}, which have a \textit{boat registration} and a \textit{boat model}; and \textbf{helicopters}, which have an \textit{FAA registration} and an \textit{aircraft model}.
+    
+    \item The company serves both \textbf{individual} and \textbf{corporate clients}. Each \textbf{client} can be uniquely identified by their \textit{\underline{client ID}} and has a \textit{phone number}, \textit{email}, and \textit{location}. \textbf{Clients} can \textit{charter} \textbf{ground vehicles} for a \textit{surcharge} and can \textit{request service} for a \textbf{vehicle}. For \textbf{corporate clients}, the database also stores a \textit{name}.
+    
+    \item Each \textbf{agent} is uniquely identified by their \textit{\underline{agent ID}}, has a \textit{name} and \textit{level}. \textbf{Agents} handle \textit{service requests}.
+    
+    \item When a \textbf{contract} is \textit{signed} by a \textbf{corporate client}, the \textit{signed date} and \textit{contract amount} are stored in the database. Each contract is uniquely identified by a \textit{\underline{contract ID}} and the database stores the \textit{contract type}.
+\end{enumerate}
+
+\newpage
+\section{Group Question 2 (GQ2)}
+\subsection{Relational Database Schemas}
+
+Based on the provided ER diagram description, here is the complete set of relation schemas.
+
+\subsubsection{Strong Entities \& Regular Attributes}
+\begin{itemize}
+    \item \texttt{Map}(\underline{city}, \underline{provider}, serial\_code, update\_date)
+    \item \texttt{Coordinator}(\underline{coordinator\_id}, name)
+    \item \texttt{Agent}(\underline{agent\_id}, level, name)
+    \item \texttt{Operator}(\underline{operator\_id}, name, driver\_license, \textit{manager\_id})
+    \begin{itemize}
+        \item \texttt{manager\_id} is a NULL-able foreign key referencing \texttt{Operator(operator\_id)}
+    \end{itemize}
+    \item \texttt{Vehicle}(\underline{vehicle\_id}, purchase\_date, capacity, condition)
+    \item \texttt{Client}(\underline{client\_id}, phone, email, location)
+\end{itemize}
+
+\subsubsection{Weak Entities \& Identifying Relationships}
+\begin{itemize}
+    \item \texttt{Contract}(\underline{contract\_id}, type, signed\_date, amount, \textit{client\_id})
+    \begin{itemize}
+        \item \texttt{client\_id} is a foreign key referencing \texttt{Client(client\_id)}
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Specialization Hierarchies (ISA Relationships)}
+
+\textbf{Vehicle Specialization (Total, Overlapping)}
+\begin{itemize}
+    \item \texttt{GroundVehicle}(\underline{vehicle\_id}, license\_plate, VIN)
+    \begin{itemize}
+        \item \texttt{vehicle\_id} is a foreign key referencing \texttt{Vehicle(vehicle\_id)}
+    \end{itemize}
+    \item \texttt{Boat}(\underline{vehicle\_id}, registration, model)
+    \begin{itemize}
+        \item \texttt{vehicle\_id} is a foreign key referencing \texttt{Vehicle(vehicle\_id)}
+    \end{itemize}
+    \item \texttt{Helicopter}(\underline{vehicle\_id}, faa\_registration, aircraft\_model)
+    \begin{itemize}
+        \item \texttt{vehicle\_id} is a foreign key referencing \texttt{Vehicle(vehicle\_id)}
+    \end{itemize}
+\end{itemize}
+
+\textbf{Client Specialization (Total, Disjoint)}
+\begin{itemize}
+    \item \texttt{IndividualClient}(\underline{client\_id})
+    \begin{itemize}
+        \item \texttt{client\_id} is a foreign key referencing \texttt{Client(client\_id)}
+    \end{itemize}
+    \item \texttt{CorporateClient}(\underline{client\_id}, corporate\_name)
+    \begin{itemize}
+        \item \texttt{client\_id} is a foreign key referencing \texttt{Client(client\_id)}
+    \end{itemize}
+\end{itemize}
+
+\newpage
+\subsubsection{Many-to-Many Relationship Relations}
+\begin{itemize}
+    \item \texttt{Uses}(\underline{coordinator\_id}, \underline{city}, \underline{provider})
+    \begin{itemize}
+        \item \texttt{coordinator\_id} is a foreign key referencing \texttt{Coordinator(coordinator\_id)}
+        \item \texttt{(city, provider)} is a foreign key referencing \texttt{Map(city, provider)}
+    \end{itemize}
+    
+    \item \texttt{Handles}(\underline{agent\_id}, \underline{client\_id})
+    \begin{itemize}
+        \item \texttt{agent\_id} is a foreign key referencing \texttt{Agent(agent\_id)}
+        \item \texttt{client\_id} is a foreign key referencing \texttt{Client(client\_id)}
+    \end{itemize}
+    
+    \item \texttt{Dispatches}(\underline{coordinator\_id}, \underline{operator\_id})
+    \begin{itemize}
+        \item \texttt{coordinator\_id} is a foreign key referencing \texttt{Coordinator(coordinator\_id)}
+        \item \texttt{operator\_id} is a foreign key referencing \texttt{Operator(operator\_id)}
+    \end{itemize}
+    
+    \item \texttt{Operates}(\underline{operator\_id}, \underline{vehicle\_id}, \underline{timestamp})
+    \begin{itemize}
+        \item \texttt{operator\_id} is a foreign key referencing \texttt{Operator(operator\_id)}
+        \item \texttt{vehicle\_id} is a foreign key referencing \texttt{Vehicle(vehicle\_id)}
+    \end{itemize}
+    
+    \item \texttt{Charters}(\underline{client\_id}, \underline{vehicle\_id}, surcharge)
+    \begin{itemize}
+        \item \texttt{client\_id} is a foreign key referencing \texttt{Client(client\_id)}
+        \item \texttt{vehicle\_id} is a foreign key referencing \texttt{Vehicle(vehicle\_id)}
+    \end{itemize}
+    
+    \item \texttt{RequestService}(\underline{client\_id}, \underline{vehicle\_id})
+    \begin{itemize}
+        \item \texttt{client\_id} is a foreign key referencing \texttt{Client(client\_id)}
+        \item \texttt{vehicle\_id} is a foreign key referencing \texttt{Vehicle(vehicle\_id)}
+    \end{itemize}
+    
+\end{itemize}
+
+\end{document}
