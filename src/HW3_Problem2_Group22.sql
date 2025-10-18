@@ -160,24 +160,6 @@ PRINT 'Remaining passengers after deletion:'
 SELECT * FROM Passenger ORDER BY pid;
 GO
 
--- ----------------------------------------------------------------------------
--- ADDITIONAL QUERY: Simple demonstration of index usage
--- ----------------------------------------------------------------------------
-/*
- * USES INDEX: idx_passenger_tier
- * 
- * Simple query to show all Gold-tier passengers, demonstrating how the tier
- * index makes finding passengers by tier faster.
- */
-
-PRINT 'Additional Query: All Gold-tier passengers'
-PRINT '==========================================='
-
-SELECT pid, pname, tier, age
-FROM Passenger
-WHERE tier = 'Gold'
-ORDER BY pid;
-GO
 
 -- ============================================================================
 -- PART 4: VERIFICATION AND ANALYSIS
