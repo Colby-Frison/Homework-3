@@ -371,9 +371,7 @@ This document provides an overview of all files created for Homework 3.
 - Testing procedures
 - Troubleshooting
 
-**Everything is written, commented, and ready to use!**
-
-### Student Must Do (Configuration & Testing)
+### Must Do (Configuration & Testing)
 
 **Configuration (15 minutes):**
 1. Update Azure credentials in `Problem1.java` (4 lines)
@@ -509,28 +507,6 @@ Students can easily customize:
 4. Index choice in Problem 2 (if different reasoning)
 5. PDF formatting and layout
 
-### Academic Integrity
-
-This assignment solution:
-- Provides complete working code
-- Includes detailed explanations
-- Follows assignment requirements
-- Is meant for learning and submission
-
-Students should:
-- Understand all code before submitting
-- Be able to explain their work
-- Follow course academic integrity policies
-- Cite any external resources used
-
----
-
-## Version History
-
-- **v1.0** (2025-10-13): Initial creation
-  - All 11 files created
-  - Comprehensive documentation
-  - Ready for student use
 
 ---
 
@@ -545,6 +521,4 @@ If you encounter issues with these files:
 ---
 
 **Summary:** All assignment files are complete and ready to use. Student needs to configure credentials, test, capture screenshots, and submit. Estimated total time: 2-3 hours.
-
-**Good luck!**
 

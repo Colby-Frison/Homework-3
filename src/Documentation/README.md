@@ -41,7 +41,7 @@ Homework 3/
 
 ## Problems Summary
 
-### Problem 1: Java JDBC Application with Stored Procedures (22.5 points)
+### Problem 1: Java JDBC Application with Stored Procedures
 
 **Objective:** Create a menu-driven Java application that manages a Pilot database using JDBC and Azure SQL Database.
 
@@ -69,7 +69,7 @@ Homework 3/
 
 ---
 
-### Problem 2: Database Indexing (15 points + 35 points individual)
+### Problem 2: Database Indexing
 
 **Objective:** Analyze query patterns and create appropriate indexes to improve database performance.
 
@@ -95,7 +95,7 @@ Homework 3/
 
 ---
 
-### Problem 3: File Organization and B+-Trees (15 points)
+### Problem 3: File Organization and B+-Trees
 
 **Objective:** Demonstrate understanding of file organization, indexes, and B+-tree data structures through manual construction.
 
@@ -116,81 +116,9 @@ Homework 3/
 
 ---
 
-## Quick Start Guide
+## Quick start guide
 
-### Prerequisites
-
-1. **Java Development Kit (JDK)**
-   - JDK 11 or higher
-   - Verify: `java -version`
-
-2. **Microsoft JDBC Driver for SQL Server**
-   - Download from: https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server
-   - Extract and note the path to `.jar` file
-
-3. **Azure SQL Database Access**
-   - Server hostname
-   - Database name
-   - Username and password
-   - Firewall configured to allow your IP
-
-4. **Azure SQL Database Tables**
-   - Passenger, Pilot, Flight, Booking tables created
-   - Tables populated with test data
-
-### Setup Steps
-
-#### 1. Configure Database Connection
-
-Edit `Problem1.java` lines 13-16:
-```java
-final static String HOSTNAME = "your-server.database.windows.net";
-final static String DBNAME = "cs-dsa-4513-sql-db";
-final static String USERNAME = "your-username";
-final static String PASSWORD = "your-password";
-```
-
-#### 2. Deploy Stored Procedures
-
-1. Open Azure SQL Query Editor
-2. Copy contents of `Problem1_StoredProcedures.sql`
-3. Execute the script
-4. Verify: `SELECT name FROM sys.procedures;`
-
-#### 3. Compile Java Program
-
-**Windows:**
-```cmd
-cd "path\to\Homework 3\src"
-javac Problem1.java
-```
-
-**Mac/Linux:**
-```bash
-cd "path/to/Homework 3/src"
-javac Problem1.java
-```
-
-#### 4. Run Java Program
-
-**Without external JAR:**
-```bash
-java Problem1
-```
-
-**With JDBC driver JAR:**
-```bash
-java -cp ".;path/to/mssql-jdbc.jar" Problem1
-```
-
-### Testing
-
-Follow the test plan in `TODO.md`:
-1. Display initial pilots (Option 3)
-2. Test Option 1 three times with different values
-3. Test Option 2 three times with different tiers
-4. Display pilots after each insertion
-5. Test program exit (Option 4)
+See QUICK_START_GUIDE.md in src/Documentation
 
 ---
 
@@ -198,13 +126,6 @@ Follow the test plan in `TODO.md`:
 
 ### Problem1.java
 
-**Design Patterns:**
-- Menu-driven interface
-- Try-with-resources for connection management
-- Prepared statements for security
-- CallableStatement for stored procedures
-- Comprehensive error handling
-- Formatted output display
 
 **User Interface:**
 ```
@@ -297,86 +218,6 @@ CREATE TABLE Booking (
 
 ---
 
-## Documentation Files
-
-### IMPORTANT_TOPICS.md
-Comprehensive study guide covering:
-- JDBC concepts and API
-- Transact-SQL stored procedures
-- Database indexing theory
-- B+-tree data structures
-- File organization
-- Individual quiz preparation
-
-### TODO.md
-Detailed checklist including:
-- Completed tasks
-- Critical tasks to finish
-- Step-by-step how-to guides
-- Testing procedures
-- Submission requirements
-- Troubleshooting common issues
-
-### Problem3_Solution.md
-Complete theoretical solutions for:
-- Sequential file organization
-- Primary and secondary indexes
-- B+-tree construction
-- Detailed explanations and diagrams
-
----
-
-## Submission Requirements
-
-### Group Portion Files (Due 10/18/2025)
-
-**Problem 1 (3 files):**
-1. `HW3_Problem1_Group_X.java` - Java source code
-2. `HW3_Problem1_Group_X.sql` - Stored procedures
-3. `HW3_Problem1_Group_X.pdf` - Execution screenshots with cover page
-
-**Problem 2 (2 files):**
-1. `HW3_Problem2_Group_X.sql` - Index creation and queries
-2. `HW3_Problem2_Group_X.pdf` - Azure execution screenshots
-
-**Problem 3 (1 file):**
-1. `HW3_Problem3_Group_X.pdf` - Typed solution
-
-**Note:** Replace X with your group number
-
-### Cover Page Format
-
-```
-GROUP NUMBER: <your group number>
-GROUP MEMBERS: <list all member names>
-GRADED HOMEWORK NUMBER: 3
-COURSE: CS/DSA-4513 - DATABASE MANAGEMENT
-SECTION: 002
-SEMESTER: FALL 2025
-INSTRUCTOR: EGAWATI PANJEI
-SCORE: <<Grader fills this>>
-```
-
-### Individual Portion (Due 10/20/2025)
-
-- Canvas quiz with one of IQ1-IQ4
-- 60-minute time limit
-- Submit one PDF document
-- Provide peer evaluation scores
-
----
-
-## Grading Breakdown
-
-- **Problem 1 (GQ1):** 22.5 points
-- **Problem 2 (GQ2):** 15 points
-- **Problem 3 (GQ3):** 15 points
-- **Individual Question:** 35 points
-
-**Total:** 87.5 points (scaled to appropriate weight)
-
----
-
 ## Common Issues and Solutions
 
 ### "Cannot find mssql-jdbc driver"
@@ -419,52 +260,9 @@ arrival_time TIME NOT NULL
 - [T-SQL Reference](https://learn.microsoft.com/en-us/sql/t-sql/)
 - [Azure SQL Documentation](https://learn.microsoft.com/en-us/azure/azure-sql/)
 
-### Sample Data
-See `TODO.md` for sample INSERT statements to populate your database.
-
 ### Testing Tools
 - Azure SQL Query Editor (online)
 - SQL Server Management Studio (SSMS)
 - Azure Data Studio
 
 ---
-
-## Tips for Success
-
-1. **Start Early:** Don't wait until the deadline
-2. **Test Incrementally:** Test each component as you build
-3. **Document Everything:** Take screenshots during testing
-4. **Handle Errors:** Test error cases (duplicate IDs, invalid tier)
-5. **Review Requirements:** Use TODO.md as a checklist
-6. **Prepare for Individual Quiz:** Study all four IQ scenarios
-
----
-
-## Contact and Support
-
-- **Instructor:** Egawati Panjei
-- **TAs:** See Canvas for office hours and contact info
-- **Canvas:** Submit questions and check announcements
-
----
-
-## License and Academic Integrity
-
-This is academic coursework for CS 4513. Follow your institution's academic integrity policies. All work should be your own (or your group's). Cite any external resources used.
-
----
-
-## Changelog
-
-- **2025-10-13:** Initial project structure created
-- **2025-10-13:** All source files and documentation completed
-- **Next:** Student to configure, test, and submit
-
----
-
-**Good luck with your homework!**
-
-For detailed instructions, see `TODO.md`.  
-For conceptual review, see `IMPORTANT_TOPICS.md`.  
-For solutions, see individual problem files.
-

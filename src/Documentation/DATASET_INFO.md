@@ -1,10 +1,5 @@
 # HW2 Dataset Integration - Summary
 
-## Dataset Successfully Integrated
-
-Your actual HW2 dataset has been successfully integrated into all the necessary files for Homework 3!
-
----
 
 ## Dataset Overview (From Your HW2)
 
@@ -37,7 +32,7 @@ Your actual HW2 dataset has been successfully integrated into all the necessary 
 | 203 | Garcia | 8000.0 |
 | 204 | Patel | 7000.0 |
 
-**Key Point:** Smith (pIid=201) has the most experience and flies the most routes!
+**Key Point:** Smith (pIid=201) has the most experience and flies the most routes
 
 ### Flights (8 total)
 | Flight | Origin | Destination | Departure | Arrival | Duration | Pilot |
@@ -52,7 +47,7 @@ Your actual HW2 dataset has been successfully integrated into all the necessary 
 | F107 | BOS | ORD | 10:00 | 12:30 | 2h 30m | Smith |
 
 **Key Points:**
-- Smith pilots 5 out of 8 flights (most active pilot!)
+- Smith pilots 5 out of 8 flights (most active pilot)
 - 3 flights depart from LAX (F100, F102, F106) - perfect for Problem 2 indexing
 - Average flight duration: ~4.4 hours
 - Flight F100 (LAX→JFK) is the most popular with 6 passengers booked
@@ -239,9 +234,9 @@ SELECT 'Bookings', COUNT(*) FROM Booking;
 
 ---
 
-## Ready to Go!
+## Integration Complete
 
-Your actual HW2 dataset is now fully integrated and ready for testing. The data includes:
+The HW2 dataset is now fully integrated and ready for testing. The data includes:
 - Real passengers from your HW2
 - Real pilots (including Smith for IQ1)
 - Real flights (including multiple from LAX for Problem 2)
