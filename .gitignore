@@ -26,6 +26,9 @@ TODO.md
 # SDBC driver
 sqljdbc_13.2.1.0_enu
 
+# individual question files
+src/Latex/Individual
+
 # LaTeX compilation files
 *.aux
 *.log
