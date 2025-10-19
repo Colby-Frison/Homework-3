@@ -415,7 +415,6 @@ Create new (with screenshots):
 5. `HW3_Problem2_Group_X.pdf` (screenshots)
 6. `HW3_Problem3_Group_X.pdf` (convert from Problem3_Solution.md)
 
-**Replace X with your group number!**
 
 ---
 

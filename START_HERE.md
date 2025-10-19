@@ -24,7 +24,7 @@
 - B+-tree construction (Part 3)
 
 **Database Setup**
-- `Database_Setup.sql` - Complete schema with YOUR HW2 dataset
+- `Database_Setup.sql` - Complete schema with HW2 dataset
 - 12 Passengers, 4 Pilots, 8 Flights, 16 Bookings
 - Ready to run on Azure SQL
 
@@ -138,7 +138,7 @@ java -cp ".;mssql-jdbc-12.4.0.jre11.jar" Problem1
 
 ### Step 5: Test & Screenshot
 ```
-Follow the prompts, test all options, take screenshots!
+Follow the prompts, test all options, take screenshots
 See QUICK_START_GUIDE.md for exact test sequence
 ```
 

@@ -1,9 +1,6 @@
 # CS 4513 - Homework 3, Problem 3 (GQ3)
 ## File Organization and Indexing
 
-**Author:** [Your Name/Group Number]  
-**Date:** [Date]
-
 ---
 
 ## Problem Statement

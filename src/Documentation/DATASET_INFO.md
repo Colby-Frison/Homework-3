@@ -1,7 +1,7 @@
 # HW2 Dataset Integration - Summary
 
 
-## Dataset Overview (From Your HW2)
+## Dataset Overview (From HW2)
 
 ### Passengers (12 total)
 | ID | Name | Tier | Age |
@@ -166,7 +166,7 @@
 
 ### 3. `START_HERE.md`
 **Updated sections:**
-- Data summary mentions "YOUR HW2 dataset"
+- Data summary mentions "HW2 dataset"
 - Correct counts: 12, 4, 8, 16
 
 ### 4. `src/DATASET_INFO.md`
@@ -237,7 +237,7 @@ SELECT 'Bookings', COUNT(*) FROM Booking;
 ## Integration Complete
 
 The HW2 dataset is now fully integrated and ready for testing. The data includes:
-- Real passengers from your HW2
+- Real passengers from HW2
 - Real pilots (including Smith for IQ1)
 - Real flights (including multiple from LAX for Problem 2)
 - Real bookings (connecting passengers to flights)

@@ -6,7 +6,6 @@
 -- 1. InsertPilotAvgFlightTime: Insert pilot with hours based on avg flight time
 -- 2. InsertPilotByPassengerTier: Insert pilot with hours based on passenger tier
 --
--- Author: [Your Name/Group Number]
 -- ============================================================================
 
 -- Drop existing stored procedures if they exist (useful for testing)

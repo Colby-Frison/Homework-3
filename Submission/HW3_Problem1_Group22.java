@@ -19,7 +19,6 @@ import java.util.Properties;
  * 3. Display all pilots
  * 4. Exit the program
  * 
- * @author [Your Name/Group Number]
  */
 public class HW3_Problem1_Group22 {
     

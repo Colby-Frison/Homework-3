@@ -9,7 +9,6 @@
 -- 4. Queries to rerun that benefit from the index
 -- 5. Explanation of why these queries were chosen
 --
--- Author: [Your Name/Group Number]
 -- ============================================================================
 
 -- ============================================================================

@@ -41,7 +41,7 @@
    final static String PASSWORD = "<your_password>";
    ```
 
-3. **Replace placeholders** with YOUR credentials:
+3. **Replace placeholders** with credentials:
    ```java
    final static String HOSTNAME = "abc1-sql-server.database.windows.net";
    final static String DBNAME = "cs-dsa-4513-sql-db";
